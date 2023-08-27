@@ -4,11 +4,13 @@ import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 
-public abstract class CydeoTestBase {
-    @BeforeAll
-    public static void init(){
+public class SpartanAuthTestBase {
 
-        RestAssured.baseURI = "https://api.training.cydeo.com";
+    @BeforeAll
+    public static void init() {
+
+        RestAssured.baseURI = "http://54.89.45.138:7000";
+
     }
 
     @AfterAll

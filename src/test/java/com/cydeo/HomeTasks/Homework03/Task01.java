@@ -1,4 +1,4 @@
-package com.cydeo.HomeTasks.Homewrok03;
+package com.cydeo.HomeTasks.Homework03;
 
 import com.cydeo.utilities.ZippopomusTestBase;
 import io.restassured.http.ContentType;
@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.Matchers.*;
 import static io.restassured.RestAssured.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class Task01 extends ZippopomusTestBase {
 

@@ -89,9 +89,27 @@ public class P04_DeserializationToCollections extends SpartanTestBase {
 
         List<Map<String, Object>> spartanList = response.as(List.class);
 
-        for (Map<String, Object> map : spartanList) {
-            System.out.println("spartanMap = " + map);
-        }
+      //  for (Map<String, Object> map : spartanList) {
+       //     System.out.println("spartanMap = " + map);
+       // }
+
+        // how to find first Spartan info
+        System.out.println("spartanList.get(0) = " + spartanList.get(0));
+
+        System.out.println("------------------------------------------------");
+        //how to find first Spartan name
+        System.out.println("spartanList.get(0).get(\"name\") = " + spartanList.get(0).get("name"));
+
+        System.out.println("----------how to find third Spartan id--------------------");
+
+        System.out.println("spartanList.get(2).get(\"id\") = " + spartanList.get(2).get("id"));
+
+        System.out.println("================================================================");
+        //Approach 2 ----JSONPATH
+        JsonPath jsonPath = response.jsonPath();
+        List<Map<String,Object>> listSpartan = jsonPath.getList("");
+
+        System.out.println("listSpartan = " + listSpartan);
 
 
     }

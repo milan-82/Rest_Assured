@@ -120,7 +120,7 @@ public class P02_HR_WithJsonPath extends HR_TestBase {
        assertEquals(200, response.statusCode());
 
 //        content type equals to application/json
-        assertEquals("ap    plication/json", response.contentType());
+        assertEquals("application/json", response.contentType());
 
 //        get the second city with JsonPath
         String secondCity = jsonPath.getString("items[1].city");
@@ -134,9 +134,8 @@ public class P02_HR_WithJsonPath extends HR_TestBase {
         String allCountryIds = jsonPath.getString("items.country_id");
         System.out.println("allCountryIds = " + allCountryIds);
 
-
 //        get all city where their country id is UK
-        String allCityInUK = jsonPath.getString("items.findAll {it.country_id='UK'}.city");
+        List<String> allCityInUK = jsonPath.getList("items.findAll {it.country_id=='UK'}.city");
         System.out.println("allCityInUK = " + allCityInUK);
     }
 

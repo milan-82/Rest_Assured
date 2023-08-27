@@ -1,18 +1,23 @@
 package com.cydeo.utilities;
-
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 
-public abstract class CydeoTestBase {
+import static io.restassured.RestAssured.*;
+
+
+public abstract class FruitTestBase {
+
+
     @BeforeAll
     public static void init(){
 
-        RestAssured.baseURI = "https://api.training.cydeo.com";
+        baseURI="https://api.predic8.de/shop/v2";
+
     }
 
     @AfterAll
-    public static void destroy() {
-        RestAssured.reset();
+    public static void destroy(){
+        reset();
     }
 }
