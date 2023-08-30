@@ -1,72 +1,104 @@
 package com.cydeo.HomeTasks.Homework05;
 
+import com.cydeo.POJO.RegionHomework;
 import com.cydeo.utilities.HR_TestBase;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
-import static io.restassured.RestAssured.*;
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Random;
 
 public class Task1 extends HR_TestBase {
 
-    /*
-    TASK 1:
+    static private int global_region_id;
 
-    —> POST a region then do GET same region to do validations.
-    Please use Map or POJO class, or JsonPath
-
-    Given accept is json
-    And content type is json
-    When I send post request to "/regions/" With json:
-    {
-        "region_id":100,
-            "region_name":"Test Region"
-    }
-    Then status code is 201
-    And content type is json
-    And region_id is 100
-    And region_name is Test Region
-
-—> GET
-
-    Given accept is json
-    When I send GET request to "/regions/100"
-    Then status code is 200
-    And content type is json
-    And region_id is 100
-    And region_name is Test Region
-*/
+    static private String global_region_name;
 
     @Test
-    public void test1(){
+    @Order(1)
+    void create_region() {
+        /*
+        Map<String,Object> requestedBody =new LinkedHashMap<>();
+        requestedBody.put("region_id",378);
+        requestedBody.put("region_name","Test Region");
 
-       // {
-       //     "region_id":100,
-      //          "region_name":"Test Region"
-       // }
+         */
 
-        Map<String, Object> requestRegionMap = new LinkedHashMap<>();
+        /*
+        {
+"region_id":100,
+"region_name":"Test Region"
+}
+         */
+        Random random=new Random();
 
-        requestRegionMap.put("region_id", 100);
-        requestRegionMap.put("region_name", "Test Region");
+        int random_region_id = random.nextInt(1000);
 
-        System.out.println("requestRegionMap = " + requestRegionMap);
+        int expected_region_id=random_region_id;
 
-        given()
-                    .accept(ContentType.JSON)
-                .and()
-                    .contentType(ContentType.JSON)
-                    .body(requestRegionMap)
-                .when()
-                .post("/regions").prettyPeek();
+        global_region_id=expected_region_id;
+
+
+        String expected_region_name="RegionHomework";
+        global_region_name=expected_region_name;
+
+        System.out.println("expected_region_id = " + expected_region_id);
+
+        Response response = RestAssured
+                .given()
+                .accept(ContentType.JSON) //"application/json"
+                .contentType(ContentType.JSON)
+                .body(new RegionHomework(expected_region_id,expected_region_name))
+                //   .body("        {\n" + "\"region_id\":100,\n" +   "\"region_name\":\"Test Region\" \n" + "}\n")
+                .post("/regions/").prettyPeek();
+
+        int actual_region_id = response.jsonPath().getInt("region_id");
+        String actual_region_name = response.jsonPath().getString("region_name");
+
+        System.out.println("actual_region_id = " + actual_region_id);
+
+        Assertions.assertEquals(expected_region_id,actual_region_id);
+
+        Assertions.assertEquals(expected_region_name,actual_region_name);
+
+    }
+
+
+    @Test
+    @Order(2)
+    void get_region() {
+
+        RestAssured
+                .given()
+                .accept(ContentType.JSON)
+                .get("/regions/"+global_region_id)
+                .then()
+                .statusCode(200)
+                .contentType(ContentType.JSON).extract().response().prettyPeek();
+
+    }
+
+    @Test
+    @Order(3)
+    void update_region() {
+
+        int updateRegionId=global_region_id;
+
+        String updatedRegionName="updated "+global_region_name;
+        Response response = RestAssured
+                .given()
+                .accept(ContentType.JSON) //"application/json"
+                .contentType(ContentType.JSON)
+                .body(new RegionHomework(updateRegionId,updatedRegionName))
+                //   .body("        {\n" + "\"region_id\":100,\n" +   "\"region_name\":\"Test Region\" \n" + "}\n")
+                .put("/regions/"+updateRegionId).prettyPeek();
+
 
 
 
     }
+
 
 }

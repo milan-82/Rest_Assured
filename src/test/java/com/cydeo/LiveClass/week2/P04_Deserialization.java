@@ -1,4 +1,4 @@
-package com.cydeo.LiveClass.Week2;
+package com.cydeo.LiveClass.week2;
 
 import com.cydeo.utilities.FruitTestBase;
 import io.restassured.http.ContentType;
@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Map;
 
-import static org.hamcrest.Matchers.*;
 import static io.restassured.RestAssured.*;
 
 public class P04_Deserialization extends FruitTestBase {

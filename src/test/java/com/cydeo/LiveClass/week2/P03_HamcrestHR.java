@@ -1,9 +1,8 @@
-package com.cydeo.LiveClass.Week2;
+package com.cydeo.LiveClass.week2;
 
 import com.cydeo.utilities.HR_TestBase;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

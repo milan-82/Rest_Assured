@@ -1,4 +1,4 @@
-package com.cydeo.LiveClass.Week2;
+package com.cydeo.LiveClass.week2;
 
 import com.cydeo.utilities.FruitTestBase;
 import io.restassured.http.ContentType;
