@@ -66,7 +66,7 @@ public class P03_SpartanPUT_PATCH_DELETE extends SpartanTestBase {
     public void test3() {
 
 //we can delete one id only one time, so it will give 204 only for the first execution
-        int id = 116;
+        int id = 11;
 
         given()
                     .pathParam("id",id)
