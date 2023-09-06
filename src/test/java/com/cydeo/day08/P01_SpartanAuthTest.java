@@ -4,10 +4,9 @@ import com.cydeo.utilities.SpartanAuthTestBase;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.hamcrest.MatcherAssert.*;
+
 import static org.hamcrest.Matchers.*;
 import static io.restassured.RestAssured.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class P01_SpartanAuthTest extends SpartanAuthTestBase {
 

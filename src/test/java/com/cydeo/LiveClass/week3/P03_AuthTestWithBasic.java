@@ -2,7 +2,6 @@ package com.cydeo.LiveClass.week3;
 
 import com.cydeo.utilities.SpartanAuthTestBase;
 import io.restassured.RestAssured;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class P03_AuthTestWithBasic extends SpartanAuthTestBase {

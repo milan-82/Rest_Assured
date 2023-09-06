@@ -1,7 +1,6 @@
 package com.cydeo.day04;
 
 import com.cydeo.utilities.HR_TestBase;
-import com.cydeo.utilities.SpartanTestBase;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;

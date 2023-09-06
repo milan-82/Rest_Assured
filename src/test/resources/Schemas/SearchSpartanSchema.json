@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "content",
+    "totalElement"
+  ],
+  "properties": {
+    "content": {
+      "type": "array",
+      "default": [],
+      "title": "The content Schema",
+      "items": {
+        "type": "object",
+        "title": "A Schema",
+        "required": [
+          "id",
+          "name",
+          "gender",
+          "phone"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "The id Schema",
+            "examples": [
+              13,
+              67,
+              91
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "The name Schema",
+            "examples": [
+              "Jaimie",
+              "Janette",
+              "Jaquenetta"
+            ]
+          },
+          "gender": {
+            "type": "string",
+            "title": "The gender Schema",
+            "examples": [
+              "Female"
+            ]
+          },
+          "phone": {
+            "type": "integer",
+            "title": "The phone Schema",
+            "examples": [
+              7842554879,
+              9887020445,
+              7338210388
+            ]
+          }
+        },
+        "examples": [{
+          "id": 13,
+          "name": "Jaimie",
+          "gender": "Female",
+          "phone": 7842554879
+        },
+          {
+            "id": 67,
+            "name": "Janette",
+            "gender": "Female",
+            "phone": 9887020445
+          },
+          {
+            "id": 91,
+            "name": "Jaquenetta",
+            "gender": "Female",
+            "phone": 7338210388
+          }]
+      },
+      "examples": [
+        [{
+          "id": 13,
+          "name": "Jaimie",
+          "gender": "Female",
+          "phone": 7842554879
+        },
+          {
+            "id": 67,
+            "name": "Janette",
+            "gender": "Female",
+            "phone": 9887020445
+          },
+          {
+            "id": 91,
+            "name": "Jaquenetta",
+            "gender": "Female",
+            "phone": 7338210388
+          }]
+      ]
+    },
+    "totalElement": {
+      "type": "integer",
+      "default": 0,
+      "title": "The totalElement Schema",
+      "examples": [
+        3
+      ]
+    }
+  },
+  "examples": [{
+    "content": [{
+      "id": 13,
+      "name": "Jaimie",
+      "gender": "Female",
+      "phone": 7842554879
+    },
+      {
+        "id": 67,
+        "name": "Janette",
+        "gender": "Female",
+        "phone": 9887020445
+      },
+      {
+        "id": 91,
+        "name": "Jaquenetta",
+        "gender": "Female",
+        "phone": 7338210388
+      }],
+    "totalElement": 3
+  }]
+}

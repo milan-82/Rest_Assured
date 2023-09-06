@@ -10,8 +10,6 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Map;
 
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import static io.restassured.RestAssured.*;
 
 public class P01_HRDeserialization extends HR_TestBase {

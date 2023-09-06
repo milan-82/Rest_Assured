@@ -7,9 +7,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 public class P02_SerializationWithPojo extends FruitTestBase {
 
     @Test

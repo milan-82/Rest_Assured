@@ -1,5 +1,4 @@
 package com.cydeo.utilities;
-import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.reset;
 
 
 public abstract class BookItTestBase {

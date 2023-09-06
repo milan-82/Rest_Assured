@@ -4,9 +4,6 @@ import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 
-import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.reset;
-
 public class SpartanTestBaseAuth {
 
     @BeforeAll

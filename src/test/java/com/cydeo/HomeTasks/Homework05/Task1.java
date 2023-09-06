@@ -5,11 +5,11 @@ import com.cydeo.utilities.HR_TestBase;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 import java.util.Random;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class Task1 extends HR_TestBase {
 
     static private int global_region_id;
@@ -18,7 +18,7 @@ public class Task1 extends HR_TestBase {
 
     @Test
     @Order(1)
-    void create_region() {
+    void create_regionPOST() {
         /*
         Map<String,Object> requestedBody =new LinkedHashMap<>();
         requestedBody.put("region_id",378);
@@ -36,12 +36,12 @@ public class Task1 extends HR_TestBase {
 
         int random_region_id = random.nextInt(1000);
 
-        int expected_region_id=random_region_id;
+        int expected_region_id = random_region_id;
 
-        global_region_id=expected_region_id;
-
+        global_region_id = expected_region_id;
 
         String expected_region_name="RegionHomework";
+
         global_region_name=expected_region_name;
 
         System.out.println("expected_region_id = " + expected_region_id);
@@ -87,6 +87,7 @@ public class Task1 extends HR_TestBase {
         int updateRegionId=global_region_id;
 
         String updatedRegionName="updated "+global_region_name;
+
         Response response = RestAssured
                 .given()
                 .accept(ContentType.JSON) //"application/json"
@@ -95,10 +96,22 @@ public class Task1 extends HR_TestBase {
                 //   .body("        {\n" + "\"region_id\":100,\n" +   "\"region_name\":\"Test Region\" \n" + "}\n")
                 .put("/regions/"+updateRegionId).prettyPeek();
 
+        String actual_region_name = response.jsonPath().getString("region_name");
 
-
-
+        Assertions.assertEquals(updatedRegionName, actual_region_name);
     }
 
+    @Test
+    @Order(4)
+    void delete_region() {
 
+        RestAssured
+                .given()
+                .accept(ContentType.JSON)
+                .delete("/regions/" + global_region_id)
+                .then()
+                .statusCode(200)
+                .contentType(ContentType.JSON).extract().response().prettyPeek();
+
+    }
 }
